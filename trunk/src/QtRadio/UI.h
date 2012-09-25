@@ -73,6 +73,7 @@
 #include "RTP.h"
 #include "hardware.h"
 #include "powermate.h"
+#include "morse.h"
 
 #define DSPSERVER_BASE_PORT 8000
 
@@ -107,6 +108,7 @@ public:
     void setHwDlg(DlgHardware *);
     DlgHardware * getHwDlg() { return pHwDlg; }
     void rmHwDlg();
+    Mode mode;
 
 signals:
     void initialize_audio(int length);
@@ -288,6 +290,7 @@ protected:
     void resizeEvent(QResizeEvent *);
 
 private slots:
+    void on_actionCwSettings_triggered();
     void on_zoomSpectrumSlider_sliderMoved(int position);
 
 private:
@@ -331,7 +334,7 @@ private:
     bool connection_valid;
 
     Band band;
-    Mode mode;
+//    Mode mode;
     Filters filters;
     CWLFilters cwlFilters;
     CWUFilters cwuFilters;
@@ -398,6 +401,8 @@ private:
     bool chkTX;
     double loffset;
     bool protocol3;
+    Morse *cwSettings;
+    void keyPressEvent(QKeyEvent *event);
 };
 
 #endif	/* _UI_H */

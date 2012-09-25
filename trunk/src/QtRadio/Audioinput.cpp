@@ -33,7 +33,6 @@ AudioInput::AudioInput()
     m_format.setFrequency(m_sampleRate);
     m_format.setChannels(1);
 #endif
-
     m_format.setSampleSize(16);
     m_format.setCodec("audio/pcm");
     m_format.setByteOrder(m_byte_order);
@@ -171,7 +170,6 @@ void AudioInput::select_audio(QAudioDeviceInfo info, int rate, int channels, QAu
         m_audioInfo->stop();
         delete m_audioInfo;
     }
-
 #if QT_VERSION >= 0x050000
     m_format.setSampleRate(m_sampleRate);
     m_format.setChannelCount(m_channels);

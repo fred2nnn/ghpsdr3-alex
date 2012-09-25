@@ -24,6 +24,7 @@ BUILT_SOURCES=                  \
     ui_BookmarksEditDialog.h \
     ui_KeypadDialog.h \
     ui_vfo.h \
+    ui_morse.h \
     ui_ctl.h \
     ui_servers.h \
 About.moc.cpp                    \
@@ -46,6 +47,7 @@ Mode.moc.cpp                     \
 Spectrum.moc.cpp                 \
 UI.moc.cpp                       \
 vfo.moc.cpp                      \
+morse.moc.cpp                    \
 Waterfall.moc.cpp                \
 Xvtr.moc.cpp \
 smeter.moc.cpp \
@@ -90,6 +92,7 @@ Mode.moc.cpp                   \
 Spectrum.moc.cpp               \
 UI.moc.cpp                     \
 vfo.moc.cpp                    \
+morse.moc.cpp                  \
 Waterfall.moc.cpp              \
 Xvtr.moc.cpp                   \
 smeter.moc.cpp                 \
@@ -108,12 +111,12 @@ AMFilters.cpp  Bookmark.cpp             Configure.cpp    DSBFilters.cpp   Freque
 Audio.cpp      BookmarkDialog.cpp       Connection.cpp   Filter.cpp       KeypadDialog.cpp   Spectrum.cpp    XvtrEntry.cpp  \
 Band.cpp       Bookmarks.cpp            CWLFilters.cpp   FiltersBase.cpp  LSBFilters.cpp     UI.cpp                         \
 BandLimit.cpp  BookmarksDialog.cpp      CWUFilters.cpp   Filters.cpp      main.cpp           USBFilters.cpp                 \
-Bandscope.cpp  BookmarksEditDialog.cpp  DIGLFilters.cpp  FMNFilters.cpp   Meter.cpp          vfo.cpp         smeter.cpp     \
+Bandscope.cpp  BookmarksEditDialog.cpp  DIGLFilters.cpp  FMNFilters.cpp   Meter.cpp          vfo.cpp        morse.cpp     smeter.cpp     \
 ctl.cpp rigctl.cpp\
 Audioinput.cpp \
 servers.cpp\
 G711A.cpp RTP.cpp hardware.cpp powermate.cpp \
-About.h      Bandscope.h        BookmarksEditDialog.h  Connection.h   DSBFilters.h   Frequency.h      Mode.h        vfo.h        \
+About.h      Bandscope.h        BookmarksEditDialog.h  Connection.h   DSBFilters.h   Frequency.h      Mode.h        vfo.h      morse.h  \
 AMFilters.h  BandStackEntry.h   Bookmarks.h            CWLFilters.h   Filter.h       FrequencyInfo.h  SAMFilters.h  Waterfall.h  \
 Audio.h      BookmarkDialog.h   Buffer.h               CWUFilters.h   FiltersBase.h  KeypadDialog.h   Spectrum.h    XvtrEntry.h  \
 Band.h       Bookmark.h         codec2.h               DIGLFilters.h  Filters.h      LSBFilters.h     UI.h          Xvtr.h       \
@@ -125,7 +128,7 @@ G711A.h RTP.h \
 cusdr_queue.h \
 hardware.h \
 powermate.h \
-About.ui  Bandscope.ui  BookmarksDialog.ui  BookmarksEditDialog.ui  Bookmark.ui  Configure.ui  KeypadDialog.ui  UI.ui  vfo.ui \
+About.ui  Bandscope.ui  BookmarksDialog.ui  BookmarksEditDialog.ui  Bookmark.ui  Configure.ui  KeypadDialog.ui  UI.ui  vfo.ui morse.ui \
 ctl.ui servers.ui
 
 
@@ -161,6 +164,7 @@ Mode.moc.cpp                     \
 Spectrum.moc.cpp                 \
 UI.moc.cpp                       \
 vfo.moc.cpp                      \
+morse.moc.cpp                    \
 Waterfall.moc.cpp                \
 Xvtr.moc.cpp                     \
 smeter.moc.cpp                   \

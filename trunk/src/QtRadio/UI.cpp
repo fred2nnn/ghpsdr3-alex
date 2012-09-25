@@ -61,6 +61,7 @@
 #include "servers.h"
 #include "ctl.h"
 #include "powermate.h"
+#include "morse.h"
 
 UI::UI(const QString server) {
 
@@ -101,6 +102,7 @@ UI::UI(const QString server) {
     dspversion = 0;
     dspversiontxt = "Unknown";
     chkTX = false;
+    cwSettings = new Morse(this); //CW settings has UI as parent so it closes with UI close
 
     // layout the screen
     widget.gridLayout->setContentsMargins(0,0,0,0);
@@ -401,6 +403,7 @@ void UI::loadSettings() {
     settings.endGroup();
 
     widget.vfoFrame->readSettings(&settings);
+    cwSettings->readSettings(&settings);
 }
 
 void UI::saveSettings() {
@@ -430,6 +433,7 @@ void UI::saveSettings() {
     settings.endGroup();
 
     widget.vfoFrame->writeSettings(&settings);
+    cwSettings->writeSettings(&settings);
 }
 
 void UI::hostChanged(QString host) {
@@ -1150,9 +1154,12 @@ void UI::modeChanged(int previousMode,int newMode) {
     switch(previousMode) {
         case MODE_CWL:
             widget.actionCWL->setChecked(FALSE);
+            cwSettings->cwMode = false;
+
             break;
         case MODE_CWU:
             widget.actionCWU->setChecked(FALSE);
+            cwSettings->cwMode = false;
             break;
         case MODE_LSB:
             widget.actionLSB->setChecked(FALSE);
@@ -1185,10 +1192,12 @@ void UI::modeChanged(int previousMode,int newMode) {
         case MODE_CWL:
             widget.actionCWL->setChecked(TRUE);
             filters.selectFilters(&cwlFilters);
+            cwSettings->cwMode = true;
             break;
         case MODE_CWU:
             widget.actionCWU->setChecked(TRUE);
             filters.selectFilters(&cwuFilters);
+            cwSettings->cwMode = true;
             break;
         case MODE_LSB:
             widget.actionLSB->setChecked(TRUE);
@@ -2501,3 +2510,28 @@ void UI::rigSetPTT(int enabled){
        widget.ctlFrame->RigCtlTX(false);
     }
 }
+
+ void UI::on_actionCwSettings_triggered()
+ {
+   QSettings settings("G0ORX", "QtRadio");
+
+   qDebug() << __FUNCTION__ << "arrived at on_actionCwSettings_triggered()";
+   cwSettings->setFixedSize(600, 471);
+ //  cwSettings->readSettings(&settings);
+   cwSettings->show();
+ }
+
+ void UI::keyPressEvent(QKeyEvent *event)
+ {
+   if (cwSettings->isVisible()) {
+     switch (event->key()) {
+       case Qt::Key_F2:
+       case Qt::Key_F3:
+       case Qt::Key_F4:
+       case Qt::Key_F5:
+       case Qt::Key_F6:
+         cwSettings->keyPressEvent(event);
+     }
+   }
+ }
+

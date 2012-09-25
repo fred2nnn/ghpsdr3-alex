@@ -318,7 +318,6 @@ void Audio::get_audio_devices(QComboBox* comboBox) {
     audio_out->set_useRTP(false);
     audio_out->start();
     audio_output->start(audio_out);
-
 #if QT_VERSION >= 0x050000
      audio_processing->set_audio_channels(audio_format.channelCount());
 #else
@@ -399,7 +398,6 @@ void Audio::select_audio(QAudioDeviceInfo info,int rate,int channels,QAudioForma
     audio_out->set_useRTP(false);
     audio_out->start();
     audio_output->start(audio_out);
-
 #if QT_VERSION >= 0x050000
      audio_processing->set_audio_channels(audio_format.channelCount());
 #else

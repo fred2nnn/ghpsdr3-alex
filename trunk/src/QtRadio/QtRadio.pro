@@ -17,7 +17,6 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     message("Using Qt5")
     QT       += core gui widgets multimedia
 
-
 #    INCLUDEPATH += /opt/qt5/include
 #    INCLUDEPATH += /opt/qt5/include/QtMultimedia
 #    INCLUDEPATH += /opt/qt5/include/QtNetwork
@@ -26,6 +25,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     INCLUDEPATH += /home/gvj/Qt5.0.0beta1/Desktop/Qt/5.0.0-beta1/gcc/include/QtGui
     INCLUDEPATH += /home/gvj/Qt5.0.0beta1/Desktop/Qt/5.0.0-beta1/gcc/include/QtWidgets
     INCLUDEPATH += /home/gvj/Qt5.0.0beta1/Desktop/Qt/5.0.0-beta1/gcc/include/QtMultimedia
+
 } else {
     $$_UsingSDK {
         message("Using the Nokia Qt SDK installation")
@@ -90,9 +90,9 @@ SOURCES += main.cpp\
     servers.cpp \
     G711A.cpp \
     RTP.cpp \
-    hardware.cpp\
+    hardware.cpp \
+    morse.cpp \
     powermate.cpp
-
 
 HEADERS  += \ 
     Waterfall.h \
@@ -143,6 +143,7 @@ HEADERS  += \
     RTP.h \
     cusdr_queue.h \
     hardware.h\
+    morse.h\
     powermate.h
 
 FORMS    += \   
@@ -156,7 +157,8 @@ FORMS    += \
     KeypadDialog.ui \
     vfo.ui \
     ctl.ui \
-    servers.ui
+    servers.ui \
+    morse.ui
 
 OTHER_FILES +=
 

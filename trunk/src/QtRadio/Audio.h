@@ -32,9 +32,9 @@
 #include <QAudioDeviceInfo>
 
 #if QT_VERSION >= 0x050000
-#include <QtWidgets/QComboBox>
+    #include <QtWidgets/QComboBox>
 #else
-#include <QtGui/QComboBox>
+    #include <QtWidgets/QComboBox>
 #endif
 
 #include <QMutex>
