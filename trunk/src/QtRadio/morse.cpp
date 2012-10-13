@@ -43,7 +43,7 @@ void Send_Elements::doElements(QString buff, unsigned long elTime)
   charFrame ltr;
 
   for (int x = 0; x<buff.length();x++) {
-    currentLetter = buff[x].toAscii();
+    currentLetter = buff[x].toLatin1();
 //    ltr = ascii2cw(currentLetter);
     ltr = ascii2cw(currentLetter);
     if (x) { // Don't send a leading letter or word space first time through.
